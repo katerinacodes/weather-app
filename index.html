@@ -4,10 +4,135 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>WeatherApp/html</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <script src="script.js"></script>
+    <div class="card">
+      <div class="card-body">
+        <h1 id="current-date-time">Sunday 08:00</h1>
+        <h2 id="city">Helsinki</h2>
+        <br />
+        <div class="currentTemp">
+          <span class="degrees">-5</span
+          ><span class="measurements">
+            <a href="#" class="celcius">°C</a> |
+            <a href="#" class="farenheit">°F</a></span
+          >
+        </div>
+
+        <img src="images/cloudy-day-1.svg" class="currentWeatherIcon" />
+
+        <div class="otherInfo">
+          <img src="images/droplet.svg" /> 28% <br />
+          <i class="fa-solid fa-wind"> </i> 7m/s
+          <br />
+          <img src="images/sunrise.svg" alt="sunrise" /> 06:07
+
+          <img src="images/sunset-fill.svg" alt="sunset" /> 18:37
+        </div>
+
+        <form>
+          <input
+            type="text"
+            placeholder="Type a city here"
+            autocomplete="off"
+            id="city-search"
+          />
+          <input id="search-button" type="submit" value="Search" />
+        </form>
+        <button id="location">Use current location</button>
+        <div class="container">
+          <div class="row">
+            <div class="col-1">
+              next2h <br /><img src="images/snowy-2.svg" /> <br />
+              -7°C
+            </div>
+            <div class="col-1">
+              next4h <br /><img src="images/snowy-3.svg" /> <br />
+              -5°C
+            </div>
+            <div class="col-1">
+              next6h <br /><img src="images/snowy-4.svg" /> <br />
+              -8°C
+            </div>
+            <div class="col-1">
+              next8h <br /><img src="images/cloudy.svg" /> <br />
+              -7°C
+            </div>
+            <div class="col-1">
+              next10h <br /><img src="images/snowy-5.svg" /><br />
+              -10°C
+            </div>
+            <div class="col-1">
+              next12h <br /><img src="images/cloudy-night-2.svg" /><br />
+              -10°C
+            </div>
+            <div class="col-1">
+              next14h <br /><img src="images/cloudy-night-3.svg" /><br />
+              -12°C
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container1">
+      <div class="row nextDays">
+        <div class="col-sm-3">
+          <div class="card day2">
+            <div class="card-body2">
+              <h5 class="card-title">Tomorrow</h5>
+              <p class="card2-text">
+                <em>max.</em> 0°C / -4°C <em>min.</em>
+                <br />
+                <img src="images/day.svg" class="nextDaysIcons" />
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card day3">
+            <div class="card-body3">
+              <h5 class="card-title">Day 3</h5>
+              <p class="card3-text">
+                <em>max.</em> -2°C / -6°C <em>min.</em>
+                <br />
+                <img src="images/cloudy-day-3.svg" class="nextDaysIcons" />
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card day4">
+            <div class="card-body4">
+              <h5 class="card-title">Day 4</h5>
+              <p class="card4-text">
+                <em>max.</em> 1°C / -4°C <em>min.</em> <br />
+                <img src="images/snowy-4.svg" class="nextDaysIcons" />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <script type="text/javascript" src="script.js"></script>
 </html>
