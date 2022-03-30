@@ -19,6 +19,15 @@ h1 {
   left: 280px;
   top: 150px;
 }
+.code-source {
+  position: relative;
+  left: 850px;
+  top: 90px;
+  font-size: 13px;
+}
+.gitHublink {
+  text-decoration: none;
+}
 .card-body {
   width: 100%;
   min-width: 1000px;
