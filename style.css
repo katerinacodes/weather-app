@@ -99,6 +99,7 @@ form {
 .otherInfo {
   position: relative;
   left: 800px;
+  top: -50px;
 }
 .row {
   position: relative;
