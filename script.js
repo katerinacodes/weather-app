@@ -27,6 +27,9 @@ function displayWeather(response) {
   celciusDegrees.innerHTML = `${temperature}`;
   let cityElement = document.querySelector("h2");
   cityElement.innerHTML = response.data.name;
+  let descriptionElement = document.querySelector("h3");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  console.log(response.data);
 }
 function typeCity(event) {
   event.preventDefault();
@@ -45,6 +48,7 @@ form.addEventListener("submit", typeCity);
 function positionWeather(current) {
   let temperature = Math.round(current.data.main.temp);
   let celciusDegrees = document.querySelector(".degrees");
+  let discriptionElement = document.queryCommandValue("h3");
   celciusDegrees.innerHTML = `${temperature}`;
   let currentCity = document.querySelector("h2");
   currentCity.innerHTML = current.data.name;
