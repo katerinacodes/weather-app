@@ -25,11 +25,13 @@ function displayWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let celciusDegrees = document.querySelector(".degrees");
   celciusDegrees.innerHTML = `${temperature}`;
+  let cityElement = document.querySelector("h2");
+  cityElement.innerHTML = response.data.name;
 }
 function typeCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-search");
-  let currentCity = document.querySelector("#city");
+  let currentCity = document.querySelector(".city");
   currentCity.innerHTML = `${cityInput.value}`;
   let units = "metric";
   let apiKey = "77ae0cb67cde28551602feb9f0ea333b";
@@ -44,7 +46,7 @@ function positionWeather(current) {
   let temperature = Math.round(current.data.main.temp);
   let celciusDegrees = document.querySelector(".degrees");
   celciusDegrees.innerHTML = `${temperature}`;
-  let currentCity = document.querySelector("#city");
+  let currentCity = document.querySelector("h2");
   currentCity.innerHTML = current.data.name;
 }
 function handlePosition(event) {
@@ -62,3 +64,7 @@ function getPosition(position) {
 }
 let button = document.querySelector(`#location`);
 button.addEventListener("click", handlePosition);
+
+let apiKey = "77ae0cb67cde28551602feb9f0ea333b";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayWeather);
