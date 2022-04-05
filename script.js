@@ -23,7 +23,7 @@ if (minutes < 10) {
 }
 
 function displayWeather(response) {
-  let temperatureCelcius = response.data.main.temp;
+  temperatureCelcius = response.data.main.temp;
   let celciusDegrees = document.querySelector(".degrees");
   celciusDegrees.innerHTML = Math.round(temperatureCelcius);
   let cityElement = document.querySelector("h2");
@@ -58,7 +58,7 @@ let form = document.querySelector("form");
 form.addEventListener("submit", typeCity);
 
 function positionWeather(current) {
-  let temperatureCelcius = Math.round(current.data.main.temp);
+  temperatureCelcius = Math.round(current.data.main.temp);
   let celciusDegrees = document.querySelector(".degrees");
   celciusDegrees.innerHTML = `${temperatureCelcius}`;
   let currentCity = document.querySelector("h2");
