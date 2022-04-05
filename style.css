@@ -81,7 +81,7 @@ form {
 .farenheit {
   text-decoration: none;
 }
-.currentWeatherIcon {
+#currentWeatherIcon {
   position: relative;
   left: 275px;
   top: 120px;

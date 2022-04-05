@@ -21,6 +21,7 @@ if (minutes < 10) {
 } else {
   currentdate.innerHTML = `${day} ${hours}:${minutes}`;
 }
+
 function displayWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let celciusDegrees = document.querySelector(".degrees");
@@ -33,6 +34,12 @@ function displayWeather(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  let iconElement = document.querySelector("#currentWeatherIcon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
   console.log(response.data);
 }
 function typeCity(event) {
@@ -62,7 +69,13 @@ function positionWeather(current) {
   humidityElement.innerHTML = current.data.main.humidity;
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(current.data.wind.speed);
+  let iconElement = document.querySelector("#currentWeatherIcon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${current.data.weather[0].icon}@2x.png`
+  );
 }
+
 function handlePosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getPosition);
