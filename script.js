@@ -22,6 +22,27 @@ if (minutes < 10) {
   currentdate.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector(".nextHoursForecast");
+  let hourlyForecastHTML = `<div class="row">`;
+  hourlyForecastHTML =
+    hourlyForecastHTML +
+    ` <div class="col-1">
+              next2h <br /><img src="images/snowy-2.svg" /> <br />
+              -7°C
+            </div>
+          `;
+  hourlyForecastHTML =
+    hourlyForecastHTML +
+    `
+            <div class="col-1">
+              next2h <br /><img src="images/snowy-2.svg" /> <br />
+              -7°C
+            </div>
+        `;
+  hourlyForecastHTML = hourlyForecastHTML + `</div>`;
+  forecastElement.innerHTML = hourlyForecastHTML;
+}
 function displayWeather(response) {
   temperatureCelcius = response.data.main.temp;
   let celciusDegrees = document.querySelector(".degrees");
@@ -115,6 +136,7 @@ function displayCelciusTemperature(event) {
   let temperatureElement = document.querySelector(".degrees");
   temperatureElement.innerHTML = Math.round(temperatureCelcius);
 }
+displayForecast();
 let temperatureCelcius = null;
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelciusTemperature);
