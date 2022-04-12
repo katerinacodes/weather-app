@@ -23,56 +23,29 @@ if (minutes < 10) {
 }
 
 function displayForecast() {
-  let forecastElement = document.querySelector(".nextHoursForecast");
-  let hourlyForecastHTML = `<div class="row">`;
+  let forecastElement = document.querySelector(".nextDaysForecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> 18° </span>
+          <span class="weather-forecast-temperature-min"> 12° </span>
+        </div>
+      </div>
+          `;
+  });
 
-  hourlyForecastHTML =
-    hourlyForecastHTML +
-    ` <div class="col-1">
-              ${
-                now.getHours() + 2
-              }.00<br /><img src="images/snowy-2.svg" /> <br />
-              -7°C
-            </div>
-          `;
-  hourlyForecastHTML =
-    hourlyForecastHTML +
-    ` <div class="col-1">
-              ${
-                now.getHours() + 4
-              }.00<br /><img src="images/snowy-2.svg" /> <br />
-              -7°C
-            </div>
-          `;
-  hourlyForecastHTML =
-    hourlyForecastHTML +
-    ` <div class="col-1">
-              ${
-                now.getHours() + 6
-              }.00<br /><img src="images/snowy-2.svg" /> <br />
-              -7°C
-            </div>
-          `;
-  hourlyForecastHTML =
-    hourlyForecastHTML +
-    ` <div class="col-1">
-              ${
-                now.getHours() + 8
-              }.00<br /><img src="images/snowy-2.svg" /> <br />
-              -7°C
-            </div>
-          `;
-  hourlyForecastHTML =
-    hourlyForecastHTML +
-    ` <div class="col-1">
-              ${
-                now.getHours() + 10
-              }.00<br /><img src="images/snowy-2.svg" /> <br />
-              -7°C
-            </div>
-          `;
-  hourlyForecastHTML = hourlyForecastHTML + `</div>`;
-  forecastElement.innerHTML = hourlyForecastHTML;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function displayWeather(response) {
@@ -86,6 +59,7 @@ function displayWeather(response) {
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.main.humidity;
   let windElement = document.querySelector("#wind");
+
   windElement.innerHTML = Math.round(response.data.wind.speed);
   let iconElement = document.querySelector("#currentWeatherIcon");
   iconElement.setAttribute(

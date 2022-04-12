@@ -48,10 +48,9 @@
         </br>
           <i class="fa-solid fa-wind"> </i> <span id="wind"></span> m/s
           <br />
-          <img src="images/sunrise.svg" alt="sunrise" /> 06:07
+          <img src="images/sunrise.svg" alt="sunrise" /><span id="sunrise"></span> 
 
-          <img src="images/sunset-fill.svg" alt="sunset" /> 18:37
-        </div>
+          <img src="images/sunset-fill.svg" alt="sunset" /> <span id="sunset"></span>
 
         <form>
           <input
@@ -63,56 +62,27 @@
           <input id="search-button" type="submit" value="Search" />
         </form>
         <button id="location">Use current location</button>
-        <div class="nextHoursForecast">
+        <div class="nextDaysForecast">
           <div class="row">
-            <div class="col-1">
-               <br /><img src="images/snowy-2.svg" /> <br />
-              -7°C
-            </div>
+           <div class="col-2">
+        <div class="weather-forecast-date"></div>
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+          
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> 18° </span>
+          <span class="weather-forecast-temperature-min"> 12° </span>
+        </div>
+      </div>
+      </div>
             
           </div>
         </div>
       </div>
     </div>
-    <div class="container1">
-      <div class="row nextDays">
-        <div class="col-sm-3">
-          <div class="card day2">
-            <div class="card-body2">
-              <h5 class="card-title">Tomorrow</h5>
-              <p class="card2-text">
-                <em>max.</em> 0°C / -4°C <em>min.</em>
-                <br />
-                <img src="images/day.svg" class="nextDaysIcons" />
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="card day3">
-            <div class="card-body3">
-              <h5 class="card-title">Day 3</h5>
-              <p class="card3-text">
-                <em>max.</em> -2°C / -6°C <em>min.</em>
-                <br />
-                <img src="images/cloudy-day-3.svg" class="nextDaysIcons" />
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="card day4">
-            <div class="card-body4">
-              <h5 class="card-title">Day 4</h5>
-              <p class="card4-text">
-                <em>max.</em> 1°C / -4°C <em>min.</em> <br />
-                <img src="images/snowy-4.svg" class="nextDaysIcons" />
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+   
   </body>
   <script type="text/javascript" src="script.js"></script>
 </html>

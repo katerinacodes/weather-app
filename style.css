@@ -52,9 +52,10 @@ h3 {
 }
 form {
   position: relative;
-  top: 50px;
-  left: 1px;
+
   padding: 0 280px;
+  right: 800px;
+  bottom: -90px;
 }
 
 #city-search {
@@ -106,46 +107,26 @@ form {
   bottom: -50px;
   left: 250px;
 }
-.nextDays {
+.nextDaysForecast {
   width: 100%;
   min-width: 1050px;
   position: relative;
-  left: 140px;
-  bottom: 30px;
+  right: 800px;
+  bottom: -70px;
 }
 
-.day2,
-.day3,
-.day4 {
-  width: 50%;
-
-  min-width: 250px;
-  margin: auto;
-  position: relative;
-  margin: 20px;
-  border: 1px solid #56a0ee;
-  border-radius: 40px;
-  box-shadow: -2px 5px 16px hsl(0deg 0% 0% / 0.25);
-}
 .card-title {
   text-align: center;
 }
-.card2-text,
-.card3-text,
-.card4-text {
-  text-align: center;
-}
-.nextDaysIcons {
-  height: 100px;
-}
+
 .container1 {
   margin-left: auto;
   margin-right: auto;
 }
 #location {
   position: relative;
-  left: 700px;
-  top: 20px;
+  right: 100px;
+  bottom: -65px;
   border-radius: none;
   border: none;
   background: none;
