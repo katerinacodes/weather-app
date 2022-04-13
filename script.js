@@ -59,8 +59,31 @@ function displayWeather(response) {
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.main.humidity;
   let windElement = document.querySelector("#wind");
-
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  let sunrise = response.data.sys.sunrise;
+  let sunset = response.data.sys.sunset;
+  let time = new Date(sunset * 1000);
+  let date = new Date(sunrise * 1000);
+  let hoursSunset = time.getHours();
+  let minutesSunset = time.getMinutes();
+  let hoursSunrise = date.getHours();
+  let minutesSunrise = date.getMinutes();
+  let sunriseElement = document.querySelector(".sunrise");
+  sunriseElement.innerHTML = `${hoursSunrise}:${minutesSunrise}`;
+  if (hoursSunrise < 10) {
+    sunriseElement.innerHTML = `0${hoursSunrise}:${minutesSunrise}`;
+  }
+  if (minutesSunrise < 10) {
+    sunriseElement.innerHTML = `${hoursSunrise}:0${minutesSunrise}`;
+  }
+  let sunsetElement = document.querySelector(".sunset");
+  sunsetElement.innerHTML = `${hoursSunset}:${minutesSunset}`;
+  if (hoursSunset < 10) {
+    sunsetElement.innerHTML = `0${hoursSunset}:${minutesSunset}`;
+  }
+  if (minutesSunset < 10) {
+    sunsetElement.innerHTML = `${hoursSunset}:0${minutesSunset}`;
+  }
   let iconElement = document.querySelector("#currentWeatherIcon");
   iconElement.setAttribute(
     "src",
