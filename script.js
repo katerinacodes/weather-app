@@ -47,12 +47,12 @@ function displayForecast(response) {
           width="42"
         />
         <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max">${Math.round(
+          <span class="weather-forecast-temperature-max"><strong>${Math.round(
             forecastDay.temp.max
-          )} </span>
+          )} </strong>° |  </span>
           <span class="weather-forecast-temperature-min"> ${Math.round(
             forecastDay.temp.min
-          )} °C</span>
+          )} °</span>
          </span>
         </div>
       </div>
@@ -172,6 +172,7 @@ function positionWeather(current) {
     "src",
     `http://openweathermap.org/img/wn/${current.data.weather[0].icon}@2x.png`
   );
+  getForecast(current.data.coord);
 }
 
 function handlePosition(event) {
