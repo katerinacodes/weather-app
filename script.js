@@ -22,7 +22,8 @@ if (minutes < 10) {
   currentdate.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector(".nextDaysForecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
@@ -46,6 +47,13 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "77ae0cb67cde28551602feb9f0ea333b";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
@@ -91,6 +99,7 @@ function displayWeather(response) {
   );
 
   console.log(response.data);
+  getForecast(response.data.coord);
 }
 function typeCity(event) {
   event.preventDefault();
@@ -119,6 +128,30 @@ function positionWeather(current) {
   humidityElement.innerHTML = current.data.main.humidity;
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(current.data.wind.speed);
+  let sunrise = current.data.sys.sunrise;
+  let sunset = current.data.sys.sunset;
+  let time = new Date(sunset * 1000);
+  let date = new Date(sunrise * 1000);
+  let hoursSunset = time.getHours();
+  let minutesSunset = time.getMinutes();
+  let hoursSunrise = date.getHours();
+  let minutesSunrise = date.getMinutes();
+  let sunriseElement = document.querySelector(".sunrise");
+  sunriseElement.innerHTML = `${hoursSunrise}:${minutesSunrise}`;
+  if (hoursSunrise < 10) {
+    sunriseElement.innerHTML = `0${hoursSunrise}:${minutesSunrise}`;
+  }
+  if (minutesSunrise < 10) {
+    sunriseElement.innerHTML = `${hoursSunrise}:0${minutesSunrise}`;
+  }
+  let sunsetElement = document.querySelector(".sunset");
+  sunsetElement.innerHTML = `${hoursSunset}:${minutesSunset}`;
+  if (hoursSunset < 10) {
+    sunsetElement.innerHTML = `0${hoursSunset}:${minutesSunset}`;
+  }
+  if (minutesSunset < 10) {
+    sunsetElement.innerHTML = `${hoursSunset}:0${minutesSunset}`;
+  }
   let iconElement = document.querySelector("#currentWeatherIcon");
   iconElement.setAttribute(
     "src",
