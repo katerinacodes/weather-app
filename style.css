@@ -6,7 +6,7 @@ html {
 }
 
 .card {
-  min-width: 100%;
+  min-width: 80%;
   width: 1000px;
   position: relative;
 
