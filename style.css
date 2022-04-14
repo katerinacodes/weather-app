@@ -6,10 +6,12 @@ html {
 }
 
 .card {
-  min-width: 1000px;
-  margin: auto;
+  min-width: 50%;
+  position: relative;
 
-  padding: 1px;
+  margin: auto 100px auto 100px;
+
+  padding: 0px 0px;
   border: 1px solid #56a0ee;
   border-radius: 40px;
   box-shadow: -2px -3px 16px hsl(0deg 0% 0% / 0.25);
@@ -22,7 +24,7 @@ h1 {
 .code-source {
   position: relative;
   left: 200px;
-  top: 650px;
+  top: 700px;
 
   font-size: 13px;
 }
@@ -30,11 +32,11 @@ h1 {
   text-decoration: none;
 }
 .card-body {
-  width: 100%;
+  width: 50%;
   min-width: 1000px;
   margin: auto;
   position: relative;
-  top: -100px;
+  top: -150px;
   right: 100px;
 }
 
