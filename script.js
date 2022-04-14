@@ -194,27 +194,4 @@ let apiKey = "77ae0cb67cde28551602feb9f0ea333b";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayWeather);
 
-function displayFarenheitTemperature(event) {
-  event.preventDefault();
-  celciusLink.classList.remove("active");
-  farenheitLink.classList.add("active");
-  let farenheitTemperature = (temperatureCelcius * 9) / 5 + 32;
-  let temperatureElement = document.querySelector(".degrees");
-  temperatureElement.innerHTML = Math.round(farenheitTemperature);
-}
-
-let farenheitLink = document.querySelector("#farenheit-link");
-farenheitLink.addEventListener("click", displayFarenheitTemperature);
-
-function displayCelciusTemperature(event) {
-  event.preventDefault();
-  celciusLink.classList.add("active");
-  farenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector(".degrees");
-  temperatureElement.innerHTML = Math.round(temperatureCelcius);
-}
-
-let temperatureCelcius = null;
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", displayCelciusTemperature);
 displayForecast();

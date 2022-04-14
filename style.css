@@ -73,16 +73,16 @@ form {
   top: 100px;
   font-size: 45px;
 }
+#celcius {
+  font-size: large;
+}
 
 .measurements {
   font-size: 15px;
   position: relative;
   bottom: 5px;
 }
-.celcius,
-.farenheit {
-  text-decoration: none;
-}
+
 #currentWeatherIcon {
   position: relative;
   left: 275px;
